@@ -2,7 +2,7 @@ var config_data = `
 {
   "dataFormat": "tsv",
   "title": "Scouting PASS 2024",
-  "page_title": "Crescendo",
+  "page_title": "Beach Bash",
   "checkboxAs": "10",
   "prematch": [
     { "name": "Scouter Initials",
@@ -15,17 +15,16 @@ var config_data = `
     { "name": "Event",
       "code": "e",
       "type": "event",
-      "defaultValue": "2023tnkn",
+      "defaultValue": "2025Minne",
       "required": "true"
     },
     { "name": "Match Level",
-      "code": "l",
-      "type": "level",
-      "choices": {
-        "qm": "Quals<br>",
-        "sf": "Semifinals<br>",
-        "f": "Finals"
-      },
+    "code": "l",
+    "type": "level",
+    "choices": {
+      "qm": "Quals<br>",
+      "pl": "Playoffs"
+    },
       "defaultValue": "qm",
       "required": "true"
     },
@@ -40,12 +39,17 @@ var config_data = `
       "code": "r",
       "type": "robot",
       "choices": {
-        "r1": "Red-1",
-        "b1": "Blue-1<br>",
-        "r2": "Red-2",
-        "b2": "Blue-2<br>",
-        "r3": "Red-3",
-        "b3": "Blue-3"
+        "2129": "2129<br>",
+        "2239(tau-cans)": "Team 2239(tau-cans)<br>",
+        "2239(phi-nixes)": "Team 2239(phi-nixes)<br>",
+        "2450": "Team 2450<br>",
+        "2491": "Team 2491<br>",
+        "2502(A)": "Team 2502(A)<br>",
+        "2502(B)": "Team 2502(B)<br>",
+        "2502(C)": "Team 2502(C)<br>",
+        "2549": "Team 2549<br>",
+        "7850": "Team 7850<br>",
+        "9157": "Team 9157<br>"
       },
       "required":"true"
     },
@@ -54,136 +58,130 @@ var config_data = `
       "type": "team",
       "min": 1,
       "max": 99999
-    },
-    { "name": "Auto Start Position",
-      "code": "as",
-      "type": "clickable_image",
-      "filename": "2024/field_image.png",
-      "clickRestriction": "one",
-      "allowableResponses": "1 12 13 24 25 36 37 48 49 60 61 72",
-      "shape": "circle 5 black red true"
     }
   ],
   "auton": [
     { "name": "Leave Starting Zone",
-      "code": "al",
+      "code": "AutoLeaveStartZone",
       "type": "bool"
     },
-    { "name": "Amp Scores",
-      "code": "aas",
+    { "name": "Net Scores",
+      "code": "NetScoresAuto",
       "type": "counter"
     },
-    { "name": "Speaker Scores",
-      "code": "ass",
+    { "name": "Net Misses",
+      "code": "NetMissesAuto",
+      "type": "counter"
+    },
+    { "name": "Hoop Scores",
+      "code": "HoopScoresAuto",
+      "type": "counter"
+    },
+    {"name": "Hoops Misses",
+      "code": "HoopMissesAuto",
       "type": "counter"
     }
   ],
   "teleop": [
-    { "name": "Amp Scores",
-      "code": "tas",
+    { "name": "Net Scores",
+      "code": "NetScoresTele",
       "type": "counter"
     },
-    { "name": "Speaker Scores",
-      "code": "tss",
+    { "name": "Net Misses",
+      "code": "NetMissesTele",
       "type": "counter"
     },
-    { "name": "Times Amplified",
-      "code": "tta",
+    { "name": "Hoop Scores",
+      "code": "HoopScoresTele",
       "type": "counter"
     },
-    { "name": "Pickup From",
-      "code": "tpu",
-      "type": "radio",
-      "choices": {
-        "s": "Source<br>",
-        "f": "Floor<br>",
-        "b": "Both<br>",
-        "x": "Not Attempted"
-      },
-      "defaultValue": "x"
+    {"name": "Hoops Misses",
+      "code": "HoopMissesTele",
+      "type": "counter"
     }
   ],
+
   "endgame": [
-    { "name": "Stage Timer",
-      "code": "dt",
-      "type": "timer"
+    {"name": "End in Start Zone",
+    "code": "EndedInStartZoneEndGame",
+    "type": "bool"
     },
-    { "name": "Final Status",
-      "code": "fs",
-      "type":"radio",
-      "choices": {
-        "p": "Parked<br>",
-        "o": "Onstage<br>",
-        "s": "Onstage (Spotlit)<br>",
-        "h": "Harmony<br>",
-        "a": "Attempted but failed<br>",
-        "x": "Not attempted"
-      },
-      "defaultValue": "x"
-    },
-    { "name": "Note in Trap",
-      "code": "nit",
-      "type": "bool"
+    {"name": "Sharks Collected",
+    "code": "SharksCollectedTotal",
+    "type": "counter"
     }
   ],
   "postmatch": [
-    { "name": "Driver Skill",
-      "code": "ds",
+    {"name": "Played Heavy Defense",
+    "code": "RobotPlayedHeavyDefenseInMatch",
+    "type": "bool"
+    },
+    { "name": "Defense Rating",
+      "code": "DriverRatingInMatch",
       "type": "radio",
       "choices": {
-        "n": "Not Effective<br>",
-        "a": "Average<br>",
-        "v": "Very Effective<br>",
-        "x": "Not Observed"
+        "5": "5(Very Effective)<br>",
+        "4": "4<br>",
+        "3": "3(Average)<br>",
+        "2": "2<br>",
+        "1": "1(Not Effective)<br>",
+        "x": "0(Not Observed)"
       },
       "defaultValue": "x"
     },
-    { "name": "Defense Rating",
-      "code": "dr",
+    { "name": "Driver Skill",
+      "code": "DriverSkillInMatch",
       "type": "radio",
       "choices": {
-        "b": "Below Average<br>",
-        "a": "Average<br>",
-        "g": "Good<br>",
-        "e": "Excellent<br>",
-        "x": "Did not play defense"
+        "5": "5(Very Effective)<br>",
+        "4": "4<br>",
+        "3": "3(Average)<br>",
+        "2": "2<br>",
+        "1": "1(Not Effective)<br>",
+        "x": "0(Not Observed)"
       },
       "defaultValue": "x"
     },
     { "name": "Speed Rating",
-      "code": "sr",
+      "code": "SpeedRatingInMatch",
       "type": "radio",
       "choices": {
-        "1": "1 (slow)<br>",
-        "2": "2<br>",
-        "3": "3<br>",
+        "5": "5(Very Effective)<br>",
         "4": "4<br>",
-        "5": "5 (fast)"
+        "3": "3(Average)<br>",
+        "2": "2<br>",
+        "1": "1(Not Effective)<br>",
+        "x": "0(Not Observed)"
       },
-      "defaultValue":"3"
+      "defaultValue":"x"
+    },
+    {"name": "Excessive Net Hits(3+)",
+    "code": "RobotHitTheNetExcessively",
+    "type": "bool"
+    },
+    {"name": "Excessive Shots Out of Starting Zone(4+)",
+    "code": "RobotShotFromTheStartZoneExcessively",
+    "type": "bool"
     },
     { "name": "Died/Immobilized",
-      "code": "die",
+      "code": "RobotDiedInMatch",
       "type": "bool"
     },
     { "name": "Tippy<br>(almost tipped over)",
-      "code": "tip",
-      "type": "bool"
-    },
-    { "name": "Dropped Notes (>2)",
-      "code": "dn",
+      "code": "RobotWasTippyInMatch",
       "type": "bool"
     },
     { "name": "Make good<br>alliance partner?",
       "tooltip": "Would you want this robot on your alliance in eliminations?",
-      "code": "all",
+      "code": "RobotWouldMakeGoodPartner",
       "type": "bool"
     },
     { "name": "Comments",
-      "code": "co",
+      "code": "CommentsAboutRobotFromMatch",
       "type": "text",
       "size": 15,
       "maxSize": 55
     }
   ]
 }`;
+
