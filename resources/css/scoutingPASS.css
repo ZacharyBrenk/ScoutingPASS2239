@@ -20,7 +20,6 @@ html, body{
     font-family : -apple-system, BlinkMacSystemFont, Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif !important;
     text-align: center;
     color: white;
-    font-size: 25px;
     font-style: bold;
     letter-spacing: 1px;
     border-width: 4px;
@@ -30,7 +29,6 @@ html, body{
 #auton_table, #endgame_table, #teleop_table {
     font-family : -apple-system, BlinkMacSystemFont, Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif !important;
     color: black;
-    font-size: 13px;
     font-style: bold;
     letter-spacing: 1px;
     border-width: 4px;
@@ -42,25 +40,33 @@ html, body{
     font-size: 160px;
 }
 
-#autonHeader, #endgameHeader, #teleopHeader1, #teleopHeader2{
+#autonHeader1, #teleopHeader1, #endgameHeader1, #postmatchHeader1, #qrHeader1{
     color: black;
-    border-color: black;
-    border-width: 4px;
-}
-
-#postmatchHeader{
-    border-width: 4px;
     border-color: white;
+    border-width: 4px;
+    font-size: 24px;
+    font-family:Verdana;    
 }
-
-#prematchHeader1, #prematchHeader2{
+#prematchHeader1{
     color: white;
     border-color: white;
     border-width: 4px;
+    font-size: 24px;
+    font-family:Verdana;    
 }
-
-#qrHeader1, #qrHeader2 {
+ #autonHeader2, #teleopHeader2, #endgameHeader2, #postmatchHeader2, #qrHeader2{
     color: black;
+    border-color: white;
+    border-width: 4px;
+    font-size: 24px;
+    font-family:Verdana;   
+}
+#prematchHeader2{
+    color: white;
+    border-color: white;
+    border-width: 4px;
+    font-size: 24px;
+    font-family:Verdana;   
 }
 
 .field-image {
@@ -113,7 +119,7 @@ h1{
     border-style: groove;
     border-color: white;
     border-width: 2px;
-    font-size: 70px;
+    font-size: 24px;
     padding: 10px;
     font-weight: 350;
 }
@@ -125,7 +131,7 @@ h1{
 h2{
     font-family: Alexis;
     text-align: center;
-    font-size: 55px;
+    font-size: 24px;
     font-weight: 300;
     font-style: italic;
 }
@@ -153,61 +159,71 @@ h2{
     display: flex;
 }
 
-#nextButton1, #nextButton2{
+
+#nextButton1{
     font-family: Alexis;
-    font-size: 35px;
-    padding: 50px 40px;
+    font-size: 24px;
+    padding: 40px 40px;
     background-color: rgb(151, 199, 240);
     text-decoration: none;
     display: inline-block;
 }
-#nextButton9, #nextButton10, .clearForm, .submitForm, #displayButton, #copyButton {
+#nextButton2, #nextButton3, #nextButton4, #nextButton5, #nextButton6, #nextButton7, #nextButton8, #nextButton9, #nextButton10{
     font-family: Alexis;
-    font-size: 30px;
-    padding: 60px 20px;
+    font-size: 24px;
+    padding: 40px 20px;
     background-color: rgb(151, 199, 240);
+    color:black;
     text-decoration: none;
     display: inline-block;
 }
 
-#nextButton3, #nextButton4, #nextButton5, #nextButton6, #nextButton7, #nextButton8 {
+#prevButton1, #prevButton2, #prevButton3, #prevButton4, #prevButton5, #prevButton6, #prevButton7, #prevButton8, #prevButton10{
     font-family: Alexis;
-    font-size: 30px;
-    background-color: black;
-    padding: 60px 20px;
-    color: white;
-}
-
-.undoButton, .flipButton {
-    font-family: Alexis;
-    font-size: 30px;
-    background-color: black;
-    padding: 60px 20px;
-    color: white;
-    margin-left: 20px;
+    font-size: 24px;
+    padding: 40px 20px;
+    background-color: lightgrey;
+    color: black;
+    text-decoration: none;
+    display: inline-block;
 }
 
 #prevButton9{
     font-family: Alexis;
-    font-size: 35px;
-    background-color: rgb(151, 199, 240);
-    padding: 50px 40px;
-}
-#prevButton7, #prevButton8{
-    font-family: Alexis;
-    font-size: 30px;
-    background-color: rgb(151, 199, 240);
-    padding: 60px 20px;
+    font-size: 20px;
+    padding: 20px 20px;
+    background-color: lightgrey;
+    text-decoration: none;
+    display: inline-block;
 }
 
-#prevButton1, #prevButton2, #prevButton3, #prevButton4, #prevButton5, #prevButton6{
+.submitForm, #displayButton, #copyButton {
     font-family: Alexis;
-    font-size: 30px;
+    font-size: 20px;
+    padding: 20px 20px;
+    background-color: lightgrey;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.clearForm{
+    font-family: Alexis;
+    font-size: 24px;
+    padding: 40px 20px;
+    background-color:rgb(151, 199, 240);
+    text-decoration: none;
+    display: inline-block;
+}
+
+.undoButton, .flipButton {
+    font-family: Alexis;
+    font-size: 24px;
     background-color: black;
-    padding: 60px 20px;
+    padding: 40px 20px;
     color: white;
-
+    margin-left: 20px;
 }
+
 
 #prematch_table{
     font: Alexis;
@@ -263,6 +279,38 @@ td {
     border: none;
    }
 
+
+/*
+#input_EndedInStartZoneEndGame{
+    font-size: 25px;
+}
+#input_s, #input_e, #input_m{
+    font-size: 25px;
+}
+#input_robot,#input_l, #input_AutoLeaveStartZone, #input_r{
+    font-size: 25px;
+    height: 20px;
+    width: 20px;
+}
+*/
+
+input[type=text] {
+    font-size: 18px;
+}
+input[type=number] {
+    font-size: 18px;
+}
+/*
+input[type=radio] {
+    border: 0px;
+    width: 5%;
+    height: 20px;
+}
+input[type=checkbox] {
+    height: 25px;
+    width: 25px;
+}
+*/
 .title {
     width: "50%";
     text-align: right;
