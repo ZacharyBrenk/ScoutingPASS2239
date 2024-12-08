@@ -40,24 +40,18 @@ var config_data = `
       "type": "robot",
       "choices": {
         "2129": "2129<br>",
-        "2239.1": "2239.1(tau-cans)<br>",
-        "2239.2": "2239.2(phi-nixes)<br>",
         "2450": "2450<br>",
         "2491": "2491<br>",
+        "2549": "2549<br>",
+        "7258": "7258<br>",
+        "9157": "9157<br>",
+        "2239.1": "2239.1(tau-cans)<br>",
+        "2239.2": "2239.2(phi-nixes)<br>",
         "2502.1": "2502.1(A)<br>",
         "2502.2": "2502.2(B)<br>",
-        "2502.3": "2502.3(C)<br>",
-        "2549": "2549<br>",
-        "7850": "7850<br>",
-        "9157": "9157<br>"
+        "2502.3": "2502.3(C)<br>"
       },
       "required":"true"
-    },
-    { "name": "Team #",
-      "code": "t",
-      "type": "team",
-      "min": 1,
-      "max": 99999
     }
   ],
   "auton": [
@@ -112,7 +106,7 @@ var config_data = `
     }
   ],
   "postmatch": [
-    {"name": "Played Heavy Defense",
+    {"name": "Played Heavy Defense?",
     "code": "RobotPlayedHeavyDefenseInMatch",
     "type": "bool"
     },
@@ -155,24 +149,24 @@ var config_data = `
       },
       "defaultValue":"0"
     },
-    {"name": "Excessive Net Hits(3+)",
+    {"name": "3+ Net Hits?",
     "code": "RobotHitTheNetExcessively",
     "type": "bool"
     },
-    {"name": "Excessive Shots Out of Starting Zone(4+)",
+    {"name": "4+ Shots From<br/>Out of Zone?",
     "code": "RobotShotFromTheStartZoneExcessively",
     "type": "bool"
     },
-    { "name": "Died/Immobilized",
+    { "name": "Died/Immobilized?",
       "code": "RobotDiedInMatch",
       "type": "bool"
     },
-    { "name": "Tippy<br>(almost tipped over)",
+    { "name": "Almost tipped over?",
       "code": "RobotWasTippyInMatch",
       "type": "bool"
     },
-    { "name": "Make good<br>alliance partner?",
-      "tooltip": "Would you want this robot on your alliance in eliminations?",
+    { "name": "Make good alliance<br/>partner?",
+      "tooltip": "Would you want this robot?",
       "code": "RobotWouldMakeGoodPartner",
       "type": "bool"
     },
